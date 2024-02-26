@@ -89,12 +89,12 @@ public class Setting {
         Prefers.put("player_live", player);
     }
 
-    public static int getDecode() {
-        return Prefers.getInt("decode", Players.HARD);
+    public static int getDecode(int player) {
+        return Prefers.getInt("decode_" + player, Players.HARD);
     }
 
-    public static void putDecode(int decode) {
-        Prefers.put("decode", decode);
+    public static void putDecode(int player, int decode) {
+        Prefers.put("decode_" + player, decode);
     }
 
     public static int getRender() {
@@ -365,6 +365,14 @@ public class Setting {
         Prefers.put("display_duration", display);
     }
 
+    public static boolean isDisplayMiniProgress() {
+        return Prefers.getBoolean("display_mini_progress", false);
+    }
+
+    public static void putDisplayMiniProgress(boolean display) {
+        Prefers.put("display_mini_progress", display);
+    }
+
     public static float getPlaySpeed() {
         return Prefers.getFloat("play_speed", 1.0f);
     }
@@ -373,12 +381,36 @@ public class Setting {
         Prefers.put("play_speed", speed);
     }
 
-    public static boolean isAggregatedSearch() {
-        return Prefers.getBoolean("aggregated_search", false);
+    public static void putFullscreenMenuKey(int key) {
+        Prefers.put("fullscreen_menu_key", key);
     }
 
-    public static void putAggregatedSearch(boolean search) {
-        Prefers.put("aggregated_search", search);
+    public static int getFullscreenMenuKey() {
+        return Prefers.getInt("fullscreen_menu_key", 0);
+    }
+
+    public static boolean isHomeSiteLock() {
+        return Prefers.getBoolean("home_site_lock", false);
+    }
+
+    public static void putHomeSiteLock(boolean lock) {
+        Prefers.put("home_site_lock", lock);
+    }
+
+    public static boolean isIncognito() {
+        return Prefers.getBoolean("incognito");
+    }
+
+    public static void putIncognito(boolean incognito) {
+        Prefers.put("incognito", incognito);
+    }
+
+    public static void putSmallWindowBackKey(int key) {
+        Prefers.put("small_window_back_key", key);
+    }
+
+    public static int getSmallWindowBackKey() {
+        return Prefers.getInt("small_window_back_key", 0);
     }
 
 }
